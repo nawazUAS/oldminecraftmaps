@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.fra.uas.model.Event;
-import edu.fra.uas.model.TemporalState;
 import edu.fra.uas.repository.EventRepository;
 
 @Service
@@ -77,18 +76,18 @@ public class Eventservice {
         event.setTimeLeft(duration);
   
         if(date.isBefore(LocalDate.now())){
-            event.setState(TemporalState.MISSED);
+            event.setState("missed");
             return event;
 
         }else if(date.isAfter(LocalDate.now())){
-            event.setState(TemporalState.PENDING);
+            event.setState("pending...");
             return event;
         }
         else if(date.isEqual(LocalDate.now())){
-            event.setState(TemporalState.NOW);
+            event.setState("now");
             if(time.isBefore(LocalTime.now())){
                 event.setHoursLeft(hoursLeft);
-                event.setState(TemporalState.MISSED);
+                event.setState("missed");
                 return event;
             } else if(time.isAfter(LocalTime.now())){
                 event.setHoursLeft(hoursLeft);

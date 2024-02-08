@@ -15,7 +15,7 @@ public class Event implements java.io.Serializable {
     private String title;
     private LocalDate date;
     private LocalTime time;
-    private TemporalState state;
+    private String state;
     private Period timeLeft;
     private Duration hoursLeft;
 
@@ -23,7 +23,7 @@ public class Event implements java.io.Serializable {
         log.debug("Event created without values");
     }
 
-    public Event(long id, String title, LocalDate date, LocalTime time, TemporalState state, Period timeLeft, Duration hoursLeft) {
+    public Event(long id, String title, LocalDate date, LocalTime time, String state, Period timeLeft, Duration hoursLeft) {
         this.date=date;
         this.id=id;
         this.time=time;
@@ -58,10 +58,10 @@ public class Event implements java.io.Serializable {
     public String getTitle() {
         return title;
     }
-    public TemporalState getState() {
+    public String getState() {
         return state;
     }
-    public void setState(TemporalState state) {
+    public void setState(String state) {
         this.state = state;
     }
     public void setTimeLeft(Period timeLeft) {

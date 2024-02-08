@@ -24,8 +24,8 @@ public class InitData {
 
         log.debug("create first event");
         Event event1=
-        eventService.createEvent("Frisuer");
-        event1.setDate(LocalDate.of(2023, 12, 20));
+        eventService.createEvent("Web code leaken");
+        event1.setDate(LocalDate.of(2024, 8, 2));
         event1.setTime(LocalTime.of(12, 23, 0));
         eventService.checkDateAndTime(event1);
 
